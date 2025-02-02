@@ -1,22 +1,11 @@
 <template>
     <main>
-        <LifecycleHook></LifecycleHook>
+        <DynamicComponet></DynamicComponet>   
     </main>
 </template>
 
-<script>
-import LifecycleHook from '@/components/LifecycleHook.vue'
-export default {
-    components: {
-        LifecycleHook : LifecycleHook
-    },
-    setup () {
-        
-
-        return {}
-    },
-    
-}
+<script setup>
+import DynamicComponet from '@/components/DynamicComponet.vue'
 </script>
 
 <style lang="scss" scoped>

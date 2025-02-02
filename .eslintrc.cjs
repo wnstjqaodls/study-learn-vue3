@@ -4,21 +4,28 @@ import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 
 export default [
   {
-    name: 'app/files-to-lint',
     files: ['**/*.{js,mjs,jsx,vue}'],
+    languageOptions: {
+      parser: 'vue-eslint-parser',
+      parserOptions: {
+        parser: 'espree',
+        ecmaVersion: 2022,
+        sourceType: 'module'
+      },
+    },
+    plugins: {
+      vue: pluginVue
+    },
+    rules: {
+      'no-console': 'warn',
+    }
   },
 
   {
-    name: 'app/files-to-ignore',
     ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
   },
 
   js.configs.recommended,
   ...pluginVue.configs['flat/essential'],
   skipFormatting,
-  {
-    rules: {
-      'no-console': 'warn', // console 메서드 사용시 경고(warn) 표시
-    },
-  },
 ]
